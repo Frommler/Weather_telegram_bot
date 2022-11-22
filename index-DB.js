@@ -1,3 +1,9 @@
+setInterval(() => {
+  console.log("setInterval");
+/*   checkTime(); */
+}, 6000);
+
+
 const { Telegraf } = require("telegraf"),
   TOKEN = "5767772684:AAFIrs0zyy4klNzIEsu2kC40BA7nOkxIV_4",
   bot = new Telegraf(TOKEN);
@@ -16,10 +22,7 @@ cityPerId.98765433456789 = "London"; */
 bot.start((ctx) => {
   i++;
   console.log("start" + i);
-  setInterval(() => {
-    console.log("setInterval");
-    checkTime(ctx);
-  }, 60000);
+
   ctx.replyWithHTML("Choise your city: ", {
     reply_markup: {
       inline_keyboard: [
@@ -94,12 +97,4 @@ function checkTime(ctxObj) {
         ctxObj.reply("Temperature in " + data.city + ": " + data.temp);
       });
   }
-};
-
-/* setInterval(() => {
-  fetch("http://localhost:9000/weather/" + cityPerId[ctx.chat.id])
-    .then((response) => response.json())
-    .then((data) => {
-      ctx.reply("Temperature in " + data.city + ": " + data.temp);
-    });
-}, 30000); */
+}
