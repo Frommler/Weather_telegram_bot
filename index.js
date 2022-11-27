@@ -65,13 +65,15 @@ bot.action("setOwnTime", (ctx) => {
   ctx.reply("Input your time in format HH:MM");
 });
 
-//TODO - check hours am pm
+//TODO - check hours am pm time zone
 
 bot.hears(/^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/, (ctx) => {
   userHoursPerId[ctx.chat.id] = ctx.match[1];
   userMinPerId[ctx.chat.id] = ctx.match[2];
   ctx.reply("You set time - " + ctx.match[0]);
 });
+
+//TODO - evening weather
 
 bot.launch();
 
